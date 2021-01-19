@@ -30,6 +30,7 @@ while True:
     Korean_word_list.append(Korean_word)
 
 if test_start == True:
+    random.shuffle(English_word_list, Korean_word_list)
     
 # print(Korean_word, English_word)
 print(English_word_list, Korean_word_list)
