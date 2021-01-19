@@ -1,4 +1,5 @@
 import time
+import random
 English_word_list = []
 Korean_word_list = []
 
@@ -13,7 +14,7 @@ while True:
     if English_word == "q" or English_word == "start":
         if not English_word_list or not Korean_word_list:
             print("외우려는 영어단어 혹은 한글 단어를 다시 입력해주세요")
-            English_word = str(input("외우려는 영어 단어를 입력하세요. 외우려는 단어 입력 후 테스트를 시작하고 싶으시면 q 또는 start를 입력하세요!>> "))
+            English_word = str(input("외우려는 영어 단어를 입력하세요.>> "))
         else:
             time.sleep(0.5)
             print("TEST 시작!!!")
@@ -23,11 +24,12 @@ while True:
     English_word_list.append(English_word)
 
     Korean_word = str(input("위에 입력한 영어단어의 한글 뜻을 입력하세요>> "))
-    if Korean_word == "q" or English_word == "start":
+    if Korean_word == "q" or Korean_word == "start":
         print("영어단어만 입력 하셨습니다. 입력한 영단어의 한글 뜻을 입력후 q를 다음에 입력하세요")
         Korean_word = str(input("위에 입력한 영어단어의 한글 뜻을 다시 입력하세요>> "))
     Korean_word_list.append(Korean_word)
 
+if test_start == True:
     
-    # print(Korean_word, English_word)
-    print(English_word_list, Korean_word_list)
+# print(Korean_word, English_word)
+print(English_word_list, Korean_word_list)
