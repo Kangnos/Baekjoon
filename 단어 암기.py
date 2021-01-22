@@ -30,7 +30,20 @@ while True:
     Korean_word_list.append(Korean_word)
 
 if test_start == True:
-    random.shuffle(English_word_list, Korean_word_list)
+    print("test가 시작됩니다!")
+    time.sleep(1)
+    for i in range(len(English_word_list)):
+        random_word_list_number = random.randrange(len(Korean_word_list))
+        answer_for_Korean = input(f"{English_word_list[random_word_list_number]}의 뜻>> ")
+        if(answer_for_Korean == Korean_word_list[random_word_list_number]):
+            print("정답입니다") 
+            Korean_word_list.remove(Korean_word_list[random_word_list_number])
+            English_word_list.remove(English_word_list[random_word_list_number])
+            random_word_list_number = random.randrange(len(Korean_word_list))
+        else:
+            print("오답입니다")
+            answer_for_Korean = input(f"{English_word_list[random_word_list_number]}의 뜻>> ")
+            random_word_list_number = random.randrange(len(Korean_word_list))
     
 # print(Korean_word, English_word)
 print(English_word_list, Korean_word_list)
