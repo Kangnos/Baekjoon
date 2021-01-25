@@ -9,6 +9,7 @@ time.sleep(1)
 
 test_start = False
 
+#입력 구간
 while True:
     English_word = str(input("외우려는 영어 단어를 입력하세요. 외우려는 단어 입력 후 테스트를 시작하고 싶으시면 q 또는 start를 입력하세요!>> "))
     if English_word == "q" or English_word == "start":
@@ -29,9 +30,10 @@ while True:
         Korean_word = str(input("위에 입력한 영어단어의 한글 뜻을 다시 입력하세요>> "))
     Korean_word_list.append(Korean_word)
 
+#테스트 구간
 if test_start == True:
     print("test가 시작됩니다!")
-    time.sleep(1)
+    time.sleep(1) # 잠깐 1초 쉬었다가
     for i in range(len(English_word_list)):
         random_word_list_number = random.randrange(len(Korean_word_list))
         answer_for_Korean = input(f"{English_word_list[random_word_list_number]}의 뜻>> ")
@@ -39,11 +41,20 @@ if test_start == True:
             print("정답입니다") 
             Korean_word_list.remove(Korean_word_list[random_word_list_number])
             English_word_list.remove(English_word_list[random_word_list_number])
-            random_word_list_number = random.randrange(len(Korean_word_list))
+            if len(Korean_word_list) == 0:
+                break
+            else:
+                random_word_list_number = random.randrange(len(Korean_word_list))
         else:
             print("오답입니다")
             answer_for_Korean = input(f"{English_word_list[random_word_list_number]}의 뜻>> ")
             random_word_list_number = random.randrange(len(Korean_word_list))
+            if(answer_for_Korean == Korean_word_list[random_word_list_number]):
+                print("정답입니다") 
+                Korean_word_list.remove(Korean_word_list[random_word_list_number])
+                English_word_list.remove(English_word_list[random_word_list_number])
+        
+print("테스트가 종료 됐습니다! 수고하셨습니다!")
     
 # print(Korean_word, English_word)
 print(English_word_list, Korean_word_list)
