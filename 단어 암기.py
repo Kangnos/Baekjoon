@@ -44,15 +44,17 @@ if test_start == True:
             if len(Korean_word_list) == 0:
                 break
             else:
-                random_word_list_number = random.randrange(len(Korean_word_list))
+                continue
         else:
             print("오답입니다")
-            answer_for_Korean = input(f"{English_word_list[random_word_list_number]}의 뜻>> ")
             random_word_list_number = random.randrange(len(Korean_word_list))
+            answer_for_Korean = input(f"{English_word_list[random_word_list_number]}의 뜻>> ")
             if(answer_for_Korean == Korean_word_list[random_word_list_number]):
                 print("정답입니다") 
                 Korean_word_list.remove(Korean_word_list[random_word_list_number])
                 English_word_list.remove(English_word_list[random_word_list_number])
+            else:
+                random_word_list_number -= 1
         
 print("테스트가 종료 됐습니다! 수고하셨습니다!")
     
